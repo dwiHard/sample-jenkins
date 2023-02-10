@@ -1,20 +1,11 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'maven:3.8.7-eclipse-temurin-11' }
+    }
     stages {
-        stage('Back-end') {
-            agent {
-                docker { image 'maven:3.8.7-eclipse-temurin-11' }
-            }
+        stage('Test') {
             steps {
                 sh 'mvn --version'
-            }
-        }
-        stage('Front-end') {
-            agent {
-                docker { image 'node:16.13.1-alpine' }
-            }
-            steps {
-                sh 'node --version'
             }
         }
     }
