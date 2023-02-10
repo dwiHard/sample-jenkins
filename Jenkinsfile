@@ -1,9 +1,20 @@
 pipeline {
-    agent any 
+    agent none
     stages {
-        stage('Stage 1') {
+        stage('Back-end') {
+            agent {
+                docker { image 'maven:3.8.7-eclipse-temurin-11' }
+            }
             steps {
-                echo 'Hello world!' 
+                sh 'mvn --version'
+            }
+        }
+        stage('Front-end') {
+            agent {
+                docker { image 'node:16.13.1-alpine' }
+            }
+            steps {
+                sh 'node --version'
             }
         }
     }
