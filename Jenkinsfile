@@ -3,9 +3,10 @@ pipeline {
         docker { image 'maven:3.8.7-eclipse-temurin-11' }
     }
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'mvn --version'
+                sh 'mvn clean'
+                sh 'mvn clean package'
             }
         }
     }
