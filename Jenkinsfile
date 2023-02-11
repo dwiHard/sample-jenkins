@@ -8,6 +8,7 @@ pipeline {
                 sh 'mvn --version'
                 sh 'mvn package'
             }
+        }
         stage('Deploy') {
             steps {
                 sh """
