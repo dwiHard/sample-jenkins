@@ -6,7 +6,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn --version'
-                sh 'mvn clean package'
+                sh 'mvn package'
                 sh 'cd /home/hard/Apache/apache-storm/bin'
                 sh 'python storm jar ~/.jenkins/workspace/simple-jenkins/targets/simple-jenkins.jar id.fivebyte.TopologyMain'
                 sh 'python storm list'
