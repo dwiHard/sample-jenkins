@@ -12,7 +12,7 @@ pipeline {
                 sh """
                 #!/bin/bash
                 cd /home/hard/Apache/apache-storm/bin
-                python storm jar ~/.jenkins/workspace/simple-jenkins/targets/simple-jenkins.jar id.fivebyte.TopologyMain
+                python storm jar ~/.jenkins/workspace/simple-jenkins/target/simple-jenkins.jar id.fivebyte.TopologyMain
                 python storm list
                 """
             }
